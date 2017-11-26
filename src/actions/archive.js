@@ -17,7 +17,7 @@ const archiveReportFail = errorMessage => {
   };
 };
 
-const archiveReport = () => {
+const archiveReport = report => {
   return dispatch => {
     const api = new ArchiveReportAPI();
     return api.archiveReport()

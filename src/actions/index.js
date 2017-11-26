@@ -2,11 +2,13 @@ import {
   getReportsSuccess,
   getReportsFail,
   getReports,
+} from './reports';
 
+import {
   archiveReportFail,
   archiveReportSuccess,
   archiveReport
-} from './reports';
+} from './archive';
 
 export {
   getReportsSuccess,

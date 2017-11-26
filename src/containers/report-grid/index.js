@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import ReportCard from './ReportCard';
 
-const ReportGrid = ({ reports }) => (
+const ReportGrid = ({ reports, archiveReport }) => (
   <div className="report-grid">
     {reports.map(report => (
-      <ReportCard key={report.id} report={report} />
+      <ReportCard key={report.id} report={report} archiveReport={archiveReport} />
     ))}
   </div>
 );

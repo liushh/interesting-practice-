@@ -7,7 +7,7 @@ import {
   archiveReportFail,
   archiveReportSuccess,
   archiveReport
-} from '../archive';
+} from '../index';
 
 console.log('archiveReport = ', archiveReport);
 
