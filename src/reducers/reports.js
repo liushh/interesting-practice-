@@ -12,10 +12,10 @@ function _udpateArchivedReport(reports, report) {
 function reportsReducer(state = [], action) {
   switch (action.type) {
     case REPORTS_LOAD_SUCCESS:
-      return action.payload
+      return action.payload.reports
     case ARCHIVE_REPORT_LOAD_SUCCESS:
-      _udpateArchivedReport(state.reports, action.payload);
-      return Object.assign({}, state);
+      _udpateArchivedReport(state, action.payload);
+      return Object.assign([], state);
     default:
       return state;
   }

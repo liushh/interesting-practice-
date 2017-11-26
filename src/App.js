@@ -24,7 +24,7 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to Nova's front-end code challenge!</h1>
 				</header>
-				{this._getReportList(this.props.reports.reports)}
+				{this._getReportList(this.props.reports)}
 			</div>
 		);
 	}
