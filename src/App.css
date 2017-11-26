@@ -16,3 +16,14 @@
 .App-title {
   font-size: 1.5em;
 }
+
+.report-grid {
+  padding: 40px;
+  display: flex;
+  flex-flow: wrap; 
+}
+
+.report-card {
+  margin: 20px;
+  text-align: left;
+}

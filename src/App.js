@@ -4,10 +4,17 @@ import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
+import { ReportGrid } from './containers';
+
 class App extends Component {
 	constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  _getReportList(reports) {
+    if (!reports || reports.length === 0) return null;
+    return <ReportGrid reports={reports} />
   }
 
 	render() {
@@ -17,7 +24,7 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to Nova's front-end code challenge!</h1>
 				</header>
-				<div>{this.props.reports.count}</div>
+				{this._getReportList(this.props.reports.reports)}
 			</div>
 		);
 	}
