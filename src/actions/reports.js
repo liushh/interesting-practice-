@@ -17,7 +17,7 @@ const getReportsFail = errorMessage => {
   };
 };
 
-const getReports = botId => {
+const getReports = () => {
   return dispatch => {
     const api = new ReportAPI();
     return api.getReports()

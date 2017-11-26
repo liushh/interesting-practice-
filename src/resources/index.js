@@ -1,5 +1,7 @@
 import ReportAPI from './report';
+import ArchiveReportAPI from './archive';
 
 export {
-  ReportAPI
+  ReportAPI,
+  ArchiveReportAPI
 };

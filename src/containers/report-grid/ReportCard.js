@@ -7,8 +7,9 @@ const ReportCard = ({ report }) => (
     <div>Last name: {report.lastName}</div>
     <div>Date of birth: {report.dob}</div>
     <div>SSN: {report.ssn}</div>
-    <div>Achived: {report.archived}</div>
     <div>Score: {report.score}</div>
+    <div>Achived: {report.archived}</div>
+    <div className="archive-button" onClick="">Archive Report</div>
   </div>
 );
 

@@ -18,12 +18,21 @@
 }
 
 .report-grid {
-  padding: 40px;
+  padding: 30px;
   display: flex;
   flex-flow: wrap; 
 }
 
 .report-card {
+  border: 2px grey solid;
   margin: 20px;
+  padding: 10px;
   text-align: left;
+}
+
+.archive-button {
+  background: #3D68A3;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }

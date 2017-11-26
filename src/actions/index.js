@@ -1,11 +1,19 @@
 import {
   getReportsSuccess,
   getReportsFail,
-  getReports
+  getReports,
+
+  archiveReportFail,
+  archiveReportSuccess,
+  archiveReport
 } from './reports';
 
 export {
   getReportsSuccess,
   getReportsFail,
-  getReports
+  getReports,
+  
+  archiveReportFail,
+  archiveReportSuccess,
+  archiveReport
 };
