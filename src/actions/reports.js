@@ -17,10 +17,10 @@ const getReportsFail = errorMessage => {
   };
 };
 
-const getReports = () => {
+const getReports = (cursor) => {
   return dispatch => {
     const api = new ReportAPI();
-    return api.getReports()
+    return api.getReports(cursor)
       .then(reports => dispatch(getReportsSuccess(reports)))
       .catch(error => {
         dispatch(getReportsFail(error.message))

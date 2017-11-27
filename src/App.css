@@ -36,3 +36,17 @@
   padding: 15px;
   text-align: center;
 }
+
+.archive-button-disable {
+  background: grey;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.load-more-buttom {
+  background: #3D68A3;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}

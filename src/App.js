@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { ReportGrid } from './containers';
-import { archiveReport } from './actions';
+import { archiveReport, getReports } from './actions';
 
 class App extends Component {
 	constructor(props) {
@@ -14,7 +14,9 @@ class App extends Component {
   }
 
   _getReportList(reports, archiveReport) {
-    if (!reports || reports.length === 0) return null;
+    if (!reports || reports.length === 0) {
+      return <div>No reports available</div>;
+    }
     console.log('reports = ', reports);
     return <ReportGrid reports={reports} archiveReport={archiveReport}/>
   }
@@ -27,6 +29,9 @@ class App extends Component {
 					<h1 className="App-title">Welcome to Nova's front-end code challenge!</h1>
 				</header>
 				{this._getReportList(this.props.reports, this.props.archiveReport)}
+        <div 
+          className="load-more-buttom"
+          onClick={this.props.getReports.bind(null, this.props.cursor)}>Load More Report</div>
 			</div>
 		);
 	}
@@ -35,11 +40,13 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     reports: state.reports,
+    cursor: state.cursor
   };
 };
 
 const mapDispatchToComponent = dispatch => ({
-  archiveReport: report => dispatch(archiveReport(report))
+  archiveReport: report => dispatch(archiveReport(report)),
+  getReports: cursor => dispatch(getReports(cursor))
 });
 
 export default connect(mapStateToProps, mapDispatchToComponent)(App);
