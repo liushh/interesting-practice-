@@ -20,7 +20,7 @@ const archiveReportFail = errorMessage => {
 const archiveReport = report => {
   return dispatch => {
     const api = new ArchiveReportAPI();
-    return api.archiveReport()
+    return api.archiveReport(report)
       .then(reports => dispatch(archiveReportSuccess(reports)))
       .catch(error => {
         dispatch(archiveReportFail(error.message))
