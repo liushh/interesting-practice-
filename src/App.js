@@ -6,6 +6,8 @@ import './App.css';
 
 import { ReportGrid } from './containers';
 import { archiveReport, getReports } from './actions';
+import { REPORT_COUNT_PER_PAGE } from './constants';
+
 
 class App extends Component {
 	constructor(props) {
@@ -17,8 +19,11 @@ class App extends Component {
     if (!reports || reports.length === 0) {
       return <div>No reports available</div>;
     }
-    console.log('reports = ', reports);
     return <ReportGrid reports={reports} archiveReport={archiveReport}/>
+  }
+
+  _hasMoreReportToLoad() {
+    return this.props.count === REPORT_COUNT_PER_PAGE;
   }
 
 	render() {
@@ -31,7 +36,8 @@ class App extends Component {
 				{this._getReportList(this.props.reports, this.props.archiveReport)}
         <button 
           className="load-more-buttom"
-          onClick={this.props.getReports.bind(null, this.props.cursor)}>Load More Report
+          onClick={this.props.getReports.bind(null, this.props.cursor)}>
+            {this._hasMoreReportToLoad() ? 'Load more reports' : 'No more reports to load'}
         </button>
 			</div>
 		);
@@ -41,7 +47,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     reports: state.reports,
-    cursor: state.cursor
+    cursor: state.cursor,
+    count: state.count
   };
 };
 
@@ -60,6 +67,7 @@ App.propTypes = {
     score: PropTypes.number.isRequired,
     archived: PropTypes.bool.isRequired
   })),
+  count: PropTypes.number,
   cursor: PropTypes.string
 };
 

@@ -10,6 +10,9 @@ function cursorReducer(state = '', action) {
   switch (action.type) {
     case REPORTS_LOAD_SUCCESS:
       const reports = action.payload.reports;
+      if (reports.length === 0) {
+        return state;
+      }
       const lastestReport = reports[reports.length - 1];
       return moment(lastestReport.createdAt).add(1, 'second').toISOString();
       

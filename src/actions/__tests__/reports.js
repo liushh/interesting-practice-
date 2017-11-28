@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from 'nock';
-import { BACKEND_SERVER_PORT } from '../../constants';
+import { BACKEND_SERVER_PORT, REPORT_COUNT_PER_PAGE} from '../../constants';
 
 import {
   getReportsSuccess,
@@ -21,7 +21,7 @@ describe('getReports', () => {
 
   it('creates REPORTS_LOAD_SUCCESS when reports are loaded', () => {
     nock(API_URL)
-      .get('?count=20&cursor=1900-11-26T00:00:00.409Z')
+      .get(`?count=${REPORT_COUNT_PER_PAGE}&cursor=1900-11-26T00:00:00.409Z`)
       .reply(201, { reports: ['reports data'] });
     const expectedActions = [{
       type: 'REPORTS_LOAD_SUCCESS',
@@ -35,7 +35,7 @@ describe('getReports', () => {
 
   it('creates REPORTS_LOAD_FAIL when reports are failed to load', () => {
     nock(API_URL)
-      .get('?count=20&cursor=1900-11-26T00:00:00.409Z')
+      .get(`?count=${REPORT_COUNT_PER_PAGE}&cursor=1900-11-26T00:00:00.409Z`)
       .reply(500, 'Internal Server Error');
     const expectedActions = [{
       type: 'REPORTS_LOAD_FAIL',
