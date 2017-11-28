@@ -29,9 +29,10 @@ class App extends Component {
 					<h1 className="App-title">Welcome to Nova's front-end code challenge!</h1>
 				</header>
 				{this._getReportList(this.props.reports, this.props.archiveReport)}
-        <div 
+        <button 
           className="load-more-buttom"
-          onClick={this.props.getReports.bind(null, this.props.cursor)}>Load More Report</div>
+          onClick={this.props.getReports.bind(null, this.props.cursor)}>Load More Report
+        </button>
 			</div>
 		);
 	}
