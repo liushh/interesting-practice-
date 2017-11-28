@@ -50,4 +50,17 @@ const mapDispatchToComponent = dispatch => ({
   getReports: cursor => dispatch(getReports(cursor))
 });
 
+App.propTypes = {
+  reports: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    dob: PropTypes.string.isRequired,
+    ssn: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    archived: PropTypes.bool.isRequired
+  })),
+  cursor: PropTypes.string
+};
+
 export default connect(mapStateToProps, mapDispatchToComponent)(App);

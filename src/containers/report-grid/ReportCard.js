@@ -9,7 +9,6 @@ const ReportCard = ({ report, archiveReport }) => (
     <div>Date of birth: {report.dob}</div>
     <div>SSN: {report.ssn}</div>
     <div>Score: {report.score}</div>
-    <div>Achived: {report.archived}</div>
     <button 
       className={report.archived ? "archive-button-disable" : "archive-button"}
       onClick={archiveReport.bind(null, report)}>
@@ -21,7 +20,12 @@ const ReportCard = ({ report, archiveReport }) => (
 ReportCard.propTypes = {
   report: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    dob: PropTypes.string.isRequired,
+    ssn: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    archived: PropTypes.bool.isRequired
   }).isRequired
 };
 

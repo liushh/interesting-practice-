@@ -14,7 +14,12 @@ const ReportGrid = ({ reports, archiveReport }) => (
 ReportGrid.propTypes = {
   reports: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    dob: PropTypes.string.isRequired,
+    ssn: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    archived: PropTypes.bool.isRequired
   })).isRequired
 };
 
