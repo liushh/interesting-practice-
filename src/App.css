@@ -34,6 +34,8 @@
   background: #3D68A3;
   color: white;
   padding: 15px;
+  margin-top: 10px;
+  width: 100%;
   text-align: center;
 }
 
@@ -41,6 +43,8 @@
   background: grey;
   color: white;
   padding: 15px;
+  margin-top: 10px;
+  width: 100%;
   text-align: center;
 }
 
@@ -48,5 +52,8 @@
   background: #3D68A3;
   color: white;
   padding: 15px;
+  margin: 20px;
+  width: 80%;
+  font-size:18px;
   text-align: center;
 }

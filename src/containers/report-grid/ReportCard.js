@@ -10,9 +10,11 @@ const ReportCard = ({ report, archiveReport }) => (
     <div>SSN: {report.ssn}</div>
     <div>Score: {report.score}</div>
     <div>Achived: {report.archived}</div>
-    <div 
+    <button 
       className={report.archived ? "archive-button-disable" : "archive-button"}
-      onClick={archiveReport.bind(null, report)}>Archive Report</div>
+      onClick={archiveReport.bind(null, report)}>
+      {report.archived ? 'Reporte Archived' : 'Archive Report'}
+    </button>
   </div>
 );
 

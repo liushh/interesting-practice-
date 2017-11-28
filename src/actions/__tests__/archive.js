@@ -9,8 +9,6 @@ import {
   archiveReport
 } from '../index';
 
-console.log('archiveReport = ', archiveReport);
-
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -23,7 +21,7 @@ describe('archive report', () => {
 
   it('creates ARCHIVE_REPORT_LOAD_SUCCESS when reports are loaded', () => {
     nock(API_URL)
-      .get('/requests/archive')
+      .patch('/requests/archive')
       .reply(201, { reports: ['reports data'] });
     const expectedActions = [{
       type: 'ARCHIVE_REPORT_LOAD_SUCCESS',
@@ -31,13 +29,13 @@ describe('archive report', () => {
     }];
 
     const store = mockStore({});
-    return store.dispatch(archiveReport({}))
+    return store.dispatch(archiveReport({id: 'report_id'}))
       .then(() => expect(store.getActions()).toEqual(expectedActions));
   });
 
   it('creates ARCHIVE_REPORT_LOAD_FAIL when reports are failed to load', () => {
     nock(API_URL)
-      .get('/requests/archive')
+      .patch('/requests/archive')
       .reply(500, 'Internal Server Error');
     const expectedActions = [{
       type: 'ARCHIVE_REPORT_LOAD_FAIL',
@@ -45,7 +43,7 @@ describe('archive report', () => {
     }];
 
     const store = mockStore({});
-    return store.dispatch(archiveReport())
+    return store.dispatch(archiveReport({id: 'report_id'}))
       .then(() => expect(store.getActions()).toEqual(expectedActions));
   });
 });

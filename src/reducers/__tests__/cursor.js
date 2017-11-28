@@ -10,7 +10,7 @@ describe('Test cursor reducer', () => {
     expect(reducer(state, action)).toEqual(expectedState);
   });
 
-  it('should return the lastest report createdAt when REPORTS_LOAD_SUCCESS', () => {
+  it('should return the lastest report createdAt with one more second when REPORTS_LOAD_SUCCESS', () => {
     const action = {
       type: REPORTS_LOAD_SUCCESS,
       payload: {
@@ -19,7 +19,7 @@ describe('Test cursor reducer', () => {
           {createdAt: '2000-11-26T00:00:00.409Z'}]}
     };
     const state = undefined;
-    const expectedState = '2000-11-26T00:00:00.409Z';
+    const expectedState = '2000-11-26T00:00:01.409Z';
 
     expect(reducer(state, action)).toEqual(expectedState);
   });
